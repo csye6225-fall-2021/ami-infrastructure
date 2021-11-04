@@ -1,0 +1,30 @@
+name: Build an AMI using Packer
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+  
+jobs:
+  packer-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Packer AMI Build
+        uses: actions/checkout@v2
+      - run: packer build ami.json
+        env:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          ami_users: ${{ secrets.AMI_USERS }}
+          subnet_id: ${{ secrets.SUBNET_ID }}
+          source_ami: ${{secrets.SOURCE_AMI}}
+          profile: ${{secrets.PROFILE}}
+          ssh_username: ${{secrets.SSH_USERNAME}}
+          production_account_id: ${{secrets.ACCOUNT_ID_PROD}}
+          instance_type: ${{secrets.INSTANCE_TYPE}}
+          device_name: ${{secrets.DEVICE_NAME}}
+          volume_type: ${{secrets.VOLUME_TYPE}}
+          delete_on_termination: ${{secrets.DELETE_ON_TERMINATION}}
+          ami_description: ${{secrets.AMI_DESCRIPTION}}
