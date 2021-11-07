@@ -5,7 +5,7 @@
     "ami_region" :"{{env `aws_region`}}",
     "source_ami":"{{env `source_ami`}}",
     "instance_type": "{{env `instance_type`}}",
-    "name": "csye6225-{{timestamp}}"
+    "name": "csye6225_fall_2021_{{timestamp}}"
  
     
   },
