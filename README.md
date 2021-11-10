@@ -1,6 +1,6 @@
 # infrastructure
 
-Create a VPC with 3 subnets , routing table , internet gateway and create a public route in the public route table created above with destination CIDR block 0.0.0.0/0 and internet gateway created above as the target
+Create a VPC with 3 subnets , routing table , internet gateway and create a public route in the public route table created above with destination CIDR block 0.0.0.0/0 and internet gateway created above as the target....
 
 # Steps to install and setup Terraform on Ubuntu
      
